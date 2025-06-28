@@ -19,31 +19,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-main()
-.then(()=>{console.log("connected successfully")})
-.catch(err => console.log(err));
-
 async function main() {
-  await mongoose.connect(MONGO_URL);
-}
-
-async function runSeederIfNeeded() {
   try {
-    const count = await listing.countDocuments();
+    await mongoose.connect(MONGO_URL);
+    console.log("✅ Connected to MongoDB");
 
+    const count = await listing.countDocuments();
     if (count === 0) {
-      const runInit = require("./init/index.js");
-      console.log("🌱 Seeding completed successfully.");
+      console.log("🌱 No listings found. Seeding...");
+      require("./init/index.js");
+      console.log("✅ Seeding done");
     } else {
-      console.log(`✅ Found ${count} listings. Skipping seeding.`);
+      console.log("✅ Listings already present.");
     }
   } catch (err) {
-    console.error("❌ Error during seed check or execution:", err.message);
+    console.error("❌ Startup Error:", err.message);
   }
 }
 
-runSeederIfNeeded();
-
+main();
 
 const validateListing=(req,res,next)=>{
   let {error}=listingSchema.validate(req.body);
