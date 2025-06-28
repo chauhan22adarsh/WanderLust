@@ -27,6 +27,24 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
+async function runSeederIfNeeded() {
+  try {
+    const count = await listing.countDocuments();
+
+    if (count === 0) {
+      const runInit = require("./init/index.js");
+      console.log("🌱 Seeding completed successfully.");
+    } else {
+      console.log(`✅ Found ${count} listings. Skipping seeding.`);
+    }
+  } catch (err) {
+    console.error("❌ Error during seed check or execution:", err.message);
+  }
+}
+
+runSeederIfNeeded();
+
+
 const validateListing=(req,res,next)=>{
   let {error}=listingSchema.validate(req.body);
   if(error){
