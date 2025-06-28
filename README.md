@@ -43,9 +43,8 @@ A full-stack web application for listing, viewing, editing, and deleting travel 
    ```
 
 3. **Start MongoDB locally**
-   Make sure MongoDB is running on mongodb://127.0.0.1:27017/wanderlust
 
----
+   Make sure MongoDB is running on mongodb://127.0.0.1:27017/wanderlust
 
 4. **Seed the database with initial listings**
 
@@ -61,7 +60,8 @@ A full-stack web application for listing, viewing, editing, and deleting travel 
 
    ```
 
-6. **Visit**  
+6. **Visit**
+
    Open http://localhost:3000 in your browser
 
 ---
