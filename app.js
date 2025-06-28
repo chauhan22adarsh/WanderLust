@@ -3,6 +3,7 @@ const app=express();
 const mongoose=require("mongoose");
 const listing=require("./models/listing.js");
 const port=3000;
+const MONGO_URL='mongodb://127.0.0.1:27017/wanderlust';
 const path=require("path");
 const methodOverride=require("method-override");
 const ejsMate=require("ejs-mate");
@@ -23,7 +24,7 @@ main()
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
+  await mongoose.connect(MONGO_URL);
 }
 
 const validateListing=(req,res,next)=>{
