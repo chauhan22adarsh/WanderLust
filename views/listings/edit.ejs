@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <form action="/listings/<%= sting._id %>?_method=PUT" method="post" novalidate class="needs-validation">
+        <div class="row">
+        <div class="col-8 offset-2">
+        <h3 style="margin: 1rem 0;">Edit your Listing</h3>
+        <div>
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" value="<%= sting.title %>" required class="form-control">
+        <div class="invalid-feedback">* This is a required field.</div>
+        </div>  
+        <div>
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required><%= sting.description %></textarea>
+        <div class="invalid-feedback">* This is a required field.</div> 
+        </div> 
+        <div>
+        <label for="image" class="form-label">Image URL</label>
+        <input name="listing[image][url]" class="form-control" required value="<%= sting.image.url %>">
+        <div class="invalid-feedback">* This is a required field.</div>
+        </div> 
+        <div>
+        <label for="price" class="form-label">Price</label>
+        <input name="listing[price]" type="number" class="form-control" required value="<%= sting.price %>">
+        <div class="invalid-feedback">* This is a required field.</div>
+        </div> 
+        <div class="row">
+        <div class="col-md-6" style="padding:0 12px 0 0;">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" class="form-control" required value="<%= sting.location %>">
+        <div class="invalid-feedback">* This is a required field.</div>
+        </div>
+        <div class="col-md-6" style="padding:0 0 0 12px;">
+        <label for="country" class="form-label">Country</label>
+        <input name="listing[country]" class="form-control" required value="<%= sting.country %>">
+        <div class="invalid-feedback">* This is a required field.</div>
+        </div>
+        </div>     
+        <button class="btn btn-dark" style="margin: 1rem 0;">Edit</button></div></div>
+    </form>
+</body>

@@ -1,0 +1,21 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+    <div class="col-lg-6 offset-lg-3 col-sm-8 offset-sm-2 col-10 offset-1">
+    <h3 style="margin: 1rem 0;">Listing Details :</h3>
+    </div>
+    <div class="card col-lg-6 offset-lg-3 offset-sm-2 col-10 offset-1" style="border: 1px solid burlywood; padding: 0.75rem; background-color:antiquewhite;height: 45rem;" >
+    <img src="<%=sting.image.url%>" class="card-img-top show-img" style="height: 50%;" alt="listingimage">
+    <div class="card-body bodied" style="padding: 12px 6px;">
+            <p class="card-text"><b><%=sting.title%></b></p>
+            <p class="card-text" style="height:9rem;overflow: auto;border: 1px solid black;padding: 0 0.5rem;"><%=sting.description%></p>
+            <p class="card-text">₹ <%=sting.price.toLocaleString("en-IN")%></p>
+            <p class="card-text"><%=sting.location%> , <%=sting.country%></p>
+        <div class="edlt">
+        <a href="/listings/<%= sting._id %>/edit" class="btn btn-primary" style="margin: 0.5rem 0;">Edit this Listing</a>
+        <form action="/listings/<%= sting._id %>?_method=DELETE" method="post"><button class="btn btn-danger" style="margin: 0.5rem 0;">Delete this Listing</button></form>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
