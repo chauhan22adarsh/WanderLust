@@ -103,6 +103,4 @@ wanderlust/
 
 ## 🙏 Credits
 
----
-
 Made with 💙 by **Adarsh Chauhan**
