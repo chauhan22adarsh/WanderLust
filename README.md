@@ -30,8 +30,8 @@ A full-stack web application for listing, viewing, editing, and deleting travel 
 1. **Clone the repo**
 
    ```bash
-   git clone https://github.com/your-username/wanderlust.git
-   cd wanderlust
+   git clone https://github.com/chauhan22adarsh/WanderLust.git
+   cd WanderLust
 
    ```
 
