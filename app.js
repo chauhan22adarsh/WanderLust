@@ -122,6 +122,10 @@ app.delete(
   })
 );
 
+app.get("/ping", (req, res) => {
+  res.status(200).send("pong");
+});
+
 app.all("*", (req, res, next) => {
   throw new ExpressError(404, "Page Not Found!");
 });
