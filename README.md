@@ -71,8 +71,9 @@ A full-stack web application for listing, viewing, editing, and deleting travel 
 ```
 wanderlust/
 ├── init/                    # Initial data setup scripts
+│   ├── data.js
+│   └── index.js
 ├── models/listing.js       # Mongoose schemas (e.g. listing.js)
-├── node_modules/           # Installed dependencies
 ├── public/                 # Static files
 │   ├── css/style.css
 │   └── js/script.js
