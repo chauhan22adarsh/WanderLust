@@ -1,3 +1,9 @@
+## 🌐 Live Demo
+
+[Visit the Live Site](https://wanderlust-4zod.onrender.com/)
+
+---
+
 # 🌍 WanderLust
 
 A full-stack web application for listing, viewing, editing, and deleting travel accommodations — inspired by platforms like Airbnb. Built with **Node.js**, **Express**, **MongoDB**, **EJS**, and **Bootstrap**.
@@ -46,21 +52,26 @@ A full-stack web application for listing, viewing, editing, and deleting travel 
 
    Make sure MongoDB is running on mongodb://127.0.0.1:27017/wanderlust
 
-4. **Seed the database with initial listings**
+4. **📄 Create .env file**
 
    ```bash
-   node init/index.js
+   touch .env
 
    ```
 
-5. **Run the app**
+5. **🛠️ Add the following to your .env file:**
+
+   MONGO_URL=mongodb://127.0.0.1:27017/wanderlust
+   port=3000
+
+6. **Run the app**
 
    ```bash
    node app.js
 
    ```
 
-6. **Visit**
+7. **Visit**
 
    Open http://localhost:3000 in your browser
 
@@ -99,6 +110,30 @@ wanderlust/
 - Asynchronous errors handled using a custom wrapAsync() function.
 - Custom ExpressError class for clean error messaging.
 - Centralized error middleware.
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home](screenshots/home.png)
+
+### All Listings Page
+
+![All Listings](screenshots/listings.png)
+
+### All Listings Page (iPad Pro)
+
+![All Listings](screenshots/ipadpro.png)
+
+### Add New Listing Page
+
+![Add New Listing](screenshots/add.png)
+
+### See Listing (iPhone 14 Pro Max)
+
+![Listings](screenshots/show.png)
 
 ---
 
