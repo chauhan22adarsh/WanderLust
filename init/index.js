@@ -1,17 +1,15 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
-const listing = require("../models/listing.js");
-
-main()
-  .then(() => {
-    console.log("connected successfully");
-  })
-  .catch((err) => console.log(err));
+const Listing = require("../models/listing.js");
 
 const initDB = async () => {
-  await listing.deleteMany({});
-  await listing.insertMany(initData.data);
-  console.log("data was initialized");
+  try {
+    await Listing.deleteMany({});
+    await Listing.insertMany(initData.data);
+    console.log("🌱 Database initialized with sample listings");
+  } catch (err) {
+    console.error("❌ Error seeding DB:", err.message);
+  }
 };
 
-initDB();
+module.exports = initDB;

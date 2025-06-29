@@ -52,26 +52,14 @@ A full-stack web application for listing, viewing, editing, and deleting travel 
 
    Make sure MongoDB is running on mongodb://127.0.0.1:27017/wanderlust
 
-4. **📄 Create .env file**
-
-   ```bash
-   touch .env
-
-   ```
-
-5. **🛠️ Add the following to your .env file:**
-
-   MONGO_URL=mongodb://127.0.0.1:27017/wanderlust
-   port=3000
-
-6. **Run the app**
+4. **Run the app**
 
    ```bash
    node app.js
 
    ```
 
-7. **Visit**
+5. **Visit**
 
    Open http://localhost:3000 in your browser
 
@@ -100,7 +88,6 @@ wanderlust/
 ├── schema.js               # Joi validation schema
 ├── package.json
 ├── package-lock.json
-├── .env                    # hidden
 └── README.md
 ```
 

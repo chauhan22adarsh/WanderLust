@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -8,7 +10,9 @@ const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema } = require("./schema.js");
-require("dotenv").config();
+const MONGO_URL =
+  process.env.MONGO_URL || "mongodb://127.0.0.1:27017/wanderlust";
+const port = process.env.port || 3000;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -20,13 +24,14 @@ app.use(methodOverride("_method"));
 
 async function main() {
   try {
-    await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(MONGO_URL);
     console.log("✅ Connected to MongoDB");
 
     const count = await listing.countDocuments();
     if (count === 0) {
       console.log("🌱 No listings found. Seeding...");
-      require("./init/index.js");
+      const seedData = require("./init/index.js");
+      await seedData();
       console.log("✅ Seeding done");
     } else {
       console.log("✅ Listings already present.");
@@ -137,6 +142,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("listings/error.ejs", { message });
 });
 
-app.listen(process.env.port, () => {
-  console.log(`listening on port ${process.env.port}`);
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
