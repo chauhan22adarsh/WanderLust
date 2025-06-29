@@ -88,6 +88,7 @@ wanderlust/
 ├── public/                 # Static files
 │   ├── css/style.css
 │   └── js/script.js
+├── screenshots/            # Screenshots
 ├── utils/                  # Custom error + async handlers
 │   ├── ExpressError.js
 │   └── wrapAsync.js
@@ -99,6 +100,7 @@ wanderlust/
 ├── schema.js               # Joi validation schema
 ├── package.json
 ├── package-lock.json
+├── .env                    # hidden
 └── README.md
 ```
 
